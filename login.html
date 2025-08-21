@@ -6,98 +6,55 @@
   <title>Site de Login - Math Game</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
-    /* Fundo da página */
     body {
       margin: 0;
       padding: 0;
       height: 100vh;
-      background-image: url("WhatsApp Image 2025-08-08 at 11.33.31.jpeg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+      background: #111;
       font-family: 'Segoe UI', sans-serif;
     }
-
-    /* Título do jogo*/
     .titulo-jogo {
-    
-      margin-top: 100px;                 /* ↓ empurra mais para baixo */
+      margin-top: 50px;
       font-family: 'Press Start 2P', cursive;
       color: yellow;
       text-align: center;
       font-size: 66px;
       text-shadow: 3px 3px 0px black, 6px 6px 8px rgba(0,0,0,0.8);
     }
-
-    /* Área central onde fica o login */
     .main-content {
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: calc(100vh - 150px);
     }
-
-    /* Container do formulário (cinza + borda cinza escura) */
     .container {
       display: flex;
       width: 90%;
       max-width: 900px;
-      background: #2b2a2a;       /* cinza claro */
-      border: 2px solid #b0b0b0; /* borda cinza mais escura */
+      background: #2b2a2a;
+      border: 2px solid #b0b0b0;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
     }
-
-    /* Área interna do formulário */
     .form-side {
       flex: 1;
       padding: 40px;
-      background-color: #e0e0e0; /* acompanha container */
-      color: #222;               /* textos padrão */
-      font-family: Arial, Helvetica, sans-serif;
+      background-color: #e0e0e0;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-
-    /* Títulos dentro das páginas (padrão) */
-    .form-side h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #111;
-      font-family: 'Press Start 2P', cursive;
-    }
-
-    .form-side h2 {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-      color: #333;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    /* >>> AJUSTE QUE VOCÊ PEDIU: deixa amarelo só no LOGIN <<< */
-    #login h1,
-    #login h2 {
-      color: yellow;
-      text-shadow: 2px 2px 0px black; /* opcional: dá contraste no amarelo */
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-
-    input {
+    .form-side h1, .form-side h2 { font-family: 'Press Start 2P', cursive; }
+    #login h1, #login h2 { color: yellow; text-shadow: 2px 2px 0px black; }
+    form { display: flex; flex-direction: column; }
+    input, select {
       padding: 12px;
       margin-bottom: 15px;
       border: 1px solid #aaa;
       border-radius: 8px;
       font-size: 1rem;
-      color: #000;
-      background: #fff;
     }
-
     button {
       padding: 12px;
       background-color: #00b7ff;
@@ -108,50 +65,14 @@
       font-size: 1rem;
       margin-bottom: 10px;
     }
-
-    button.green {
-      background-color: #00b7ff;
-    }
-
-    a {
-      color: #2563eb;
-      text-decoration: none;
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    p {
-      margin: 8px 0;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #111;
-    }
-
-    select {
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: 1px solid #aaa;
-      width: 100%;
-      box-sizing: border-box;
-      font-size: 16px;
-      background-color: white;
-      color: #000;
-    }
-
+    p { text-align: center; }
     .page { display: none; }
     .active { display: block; }
   </style>
 </head>
 <body>
-  <!-- Título fixo no topo -->
   <h1 class="titulo-jogo">Math Game</h1>
 
-  <!-- Conteúdo central -->
   <div class="main-content">
     <div class="container">
       <div class="form-side">
@@ -162,10 +83,7 @@
           <h2>Faça login para continuar</h2>
           <form id="loginForm">
             <input type="text" name="usuario_ou_email" placeholder="Usuário ou e-mail" required />
-            <div>
-              <input type="password" name="senha" placeholder="Senha" id="senha" required />
-              <button type="button" class="toggle-password" onclick="toggleSenha('senha', this)">Mostrar</button>
-            </div>
+            <input type="password" name="senha" placeholder="Senha" required />
             <button type="submit">Entrar</button>
             <p><a onclick="trocarPagina('esqueci')">Esqueceu a senha?</a></p>
             <p>Não tem conta? <a onclick="trocarPagina('cadastro')">Cadastre-se</a></p>
@@ -175,57 +93,40 @@
         <!-- Cadastro -->
         <div id="cadastro" class="page">
           <h1>Cadastro</h1>
-          <h2>Crie sua conta</h2>
           <form id="cadastroForm">
             <input type="text" name="nome_completo" placeholder="Nome completo" required />
             <input type="text" name="nome_usuario" placeholder="Nome de usuário" required />
             <input type="email" name="email" placeholder="E-mail" required />
-            <div class="password-container">
-              <input type="password" name="senha" placeholder="Senha" id="senhaCadastro" required />
-              <button type="button" class="toggle-password" onclick="toggleSenha('senhaCadastro', this)">Mostrar</button>
-            </div>
-            <div class="password-container">
-              <input type="password" placeholder="Confirmar senha" id="confirmarSenha" required />
-              <button type="button" class="toggle-password" onclick="toggleSenha('confirmarSenha', this)">Mostrar</button>
-            </div>
+            <input type="password" name="senha" placeholder="Senha" id="senhaCadastro" required />
+            <input type="password" placeholder="Confirmar senha" id="confirmarSenha" required />
             <select name="serie" required>
               <option value="" disabled selected hidden>Selecione sua série</option>
               <option value="1EM">1º ano do Ensino Médio</option>
               <option value="2EM">2º ano do Ensino Médio</option>
               <option value="3EM">3º ano do Ensino Médio</option>
             </select>
-            <button type="submit" class="green">Cadastrar</button>
+            <button type="submit">Cadastrar</button>
             <p>Já tem conta? <a onclick="trocarPagina('login')">Entrar</a></p>
           </form>
         </div>
 
-        <!-- Esqueci Senha -->
+        <!-- Esqueci -->
         <div id="esqueci" class="page">
           <h1>Recuperar senha</h1>
-          <h2>Digite seu e-mail ou nome de usuário</h2>
           <form id="esqueciForm">
             <input type="email" name="email" placeholder="E-mail" required />
-            <input type="text" name="nome_usuario" placeholder="Nome de usuário" required />
             <button type="submit">Continuar</button>
             <p><a onclick="trocarPagina('login')">Voltar ao login</a></p>
           </form>
         </div>
 
-        <!-- Redefinir Senha -->
+        <!-- Redefinir -->
         <div id="redefinir" class="page">
           <h1>Nova senha</h1>
-          <h2>Digite sua nova senha</h2>
           <form id="redefinirForm">
-            <div>
-              <input type="password" placeholder="Nova senha" id="novaSenha" required />
-              <button type="button" class="toggle-password" onclick="toggleSenha('novaSenha', this)">Mostrar</button>
-            </div>
-            <div>
-              <input type="password" placeholder="Confirmar nova senha" id="confirmarNovaSenha" required />
-              <button type="button" class="toggle-password" onclick="toggleSenha('confirmarNovaSenha', this)">Mostrar</button>
-            </div>
+            <input type="password" name="novaSenha" placeholder="Nova senha" id="novaSenha" required />
+            <input type="password" placeholder="Confirmar nova senha" id="confirmarNovaSenha" required />
             <button type="submit">Salvar</button>
-            <p><a onclick="trocarPagina('login')">Voltar ao login</a></p>
           </form>
         </div>
 
@@ -241,70 +142,40 @@
 
   async function postForm(url, form) {
     const formData = new FormData(form);
-    const response = await fetch(url, {
-      method: "POST",
-      body: formData
-    });
+    const response = await fetch(url, { method: "POST", body: formData });
     return response.json();
   }
 
-  // Cadastro
-  document.getElementById("cadastroForm")?.addEventListener("submit", async function (e) {
+  document.getElementById("cadastroForm")?.addEventListener("submit", async function(e){
     e.preventDefault();
     const senha = document.getElementById("senhaCadastro").value;
     const confirmar = document.getElementById("confirmarSenha").value;
-
-    if (senha !== confirmar) {
-      alert("As senhas não coincidem!");
-      return;
-    }
-
-    const data = await postForm("http://127.0.0.1:5000/cadastro", this);
-    if (data.ok) {
-      alert("Cadastro realizado com sucesso!");
-      trocarPagina("login");
-    } else {
-      alert("Erro: " + data.error);
-    }
+    if (senha !== confirmar) { alert("As senhas não coincidem!"); return; }
+    const data = await postForm("cadastro.php", this);
+    if (data.ok) { alert("Cadastro realizado!"); trocarPagina("login"); }
+    else { alert("Erro: " + data.error); }
   });
 
-  // Login
-  document.getElementById("loginForm")?.addEventListener("submit", async function (e) {
+  document.getElementById("loginForm")?.addEventListener("submit", async function(e){
     e.preventDefault();
-    const data = await postForm("http://127.0.0.1:5000/login", this);
-    if (data.ok) {
-      alert("Login feito com sucesso!");
-    } else {
-      alert("Erro: " + data.error);
-    }
+    const data = await postForm("login.php", this);
+    if (data.ok) { alert("Login feito com sucesso!"); }
+    else { alert("Erro: " + data.error); }
   });
 
-  // Esqueci senha
-  document.getElementById("esqueciForm")?.addEventListener("submit", function (e) {
-    e.preventDefault();
-    trocarPagina("redefinir");
+  document.getElementById("esqueciForm")?.addEventListener("submit", function(e){
+    e.preventDefault(); trocarPagina("redefinir");
   });
 
-  // Redefinir senha
-  document.getElementById("redefinirForm")?.addEventListener("submit", function (e) {
+  document.getElementById("redefinirForm")?.addEventListener("submit", async function(e){
     e.preventDefault();
     const senha = document.getElementById("novaSenha").value;
     const confirmar = document.getElementById("confirmarNovaSenha").value;
-    if (senha !== confirmar) {
-      alert("As senhas não coincidem!");
-      return;
-    }
-    alert("Senha redefinida com sucesso!");
-    trocarPagina("login");
+    if (senha !== confirmar) { alert("As senhas não coincidem!"); return; }
+    const data = await postForm("redefinir.php", this);
+    if (data.ok) { alert("Senha redefinida!"); trocarPagina("login"); }
+    else { alert("Erro: " + data.error); }
   });
-
-  function toggleSenha(idCampo, btn) {
-    const input = document.getElementById(idCampo);
-    const tipo = input.getAttribute("type") === "password" ? "text" : "password";
-    input.setAttribute("type", tipo);
-    btn.textContent = tipo === "password" ? "Mostrar" : "Esconder";
-  }
 </script>
-
 </body>
 </html>
