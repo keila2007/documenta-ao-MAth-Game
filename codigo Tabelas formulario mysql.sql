@@ -27,4 +27,4 @@ CREATE TABLE recuperacao_senha (
         ON UPDATE CASCADE
 );
 
-select * from usuarios
+select * from usuarios;

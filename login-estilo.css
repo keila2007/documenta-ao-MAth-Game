@@ -1,0 +1,63 @@
+body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #111;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .titulo-jogo {
+      margin-top: 50px;
+      font-family: 'Press Start 2P', cursive;
+      color: yellow;
+      text-align: center;
+      font-size: 66px;
+      text-shadow: 3px 3px 0px black, 6px 6px 8px rgba(0,0,0,0.8);
+    }
+    .main-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 150px);
+    }
+    .container {
+      display: flex;
+      width: 90%;
+      max-width: 900px;
+      background: #2b2a2a;
+      border: 2px solid #b0b0b0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+    .form-side {
+      flex: 1;
+      padding: 40px;
+      background-color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .form-side h1, .form-side h2 { font-family: 'Press Start 2P', cursive; }
+    #login h1, #login h2 { color: yellow; text-shadow: 2px 2px 0px black; }
+    form { display: flex; flex-direction: column; }
+    input, select {
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 12px;
+      background-color: #00b7ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    p { text-align: center; }
+    .page { display: none; }
+    .active { display: block; }
+
