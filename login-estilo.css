@@ -1,10 +1,13 @@
-body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      background: #111;
-      font-family: 'Segoe UI', sans-serif;
-    }
+/* Fundo */
+body  {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-image: url("WhatsApp Image 2025-08-08 at 11.33.31.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
     .titulo-jogo {
       margin-top: 50px;
       font-family: 'Press Start 2P', cursive;
@@ -24,7 +27,7 @@ body {
       width: 90%;
       max-width: 900px;
       background: #2b2a2a;
-      border: 2px solid #b0b0b0;
+      border: 2px solid #2e2d2d;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
