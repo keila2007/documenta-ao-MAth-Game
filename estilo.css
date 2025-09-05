@@ -122,3 +122,78 @@ h3 { font-size: 44px; }
   background-color: #444;
 }
 
+/* Sidebar lateral */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: rgba(200, 200, 200, 0.9); /* cinza mais claro com transparência */
+  border-left: 3px solid #666; /* borda igual ao tom atual */
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 100px; /* empurra os botões para mais baixo */
+  z-index: 1000;
+}
+/* Botões dentro da sidebar */
+.icon-btn-sidebar {
+  display: block;
+  width: 80%;
+  margin: 12px auto;
+  padding: 12px;
+  background: #444;
+  border: 2px solid #666;
+  color: #fff;
+  font-family: 'Press Start 2P', monospace;
+  cursor: pointer;
+  text-align: center;
+}
+
+.icon-btn-sidebar:hover {
+  background: #666;
+}
+
+/* Caixas da sidebar iguais às dos ícones */
+.sidebar .info-box {
+  position: relative;   /* diferente do absoluto dos ícones */
+  top: auto;
+  left: auto;
+  transform: none;
+  margin: 8px auto;
+}
+
+.sidebar button:hover {
+  background: #666;
+}
+
+/* Inputs escondidos */
+.hidden-input {
+  display: none;
+  margin: 8px 16px;
+  padding: 6px;
+  width: 80%;
+}
+
+.show {
+  display: block;
+}
+
+/* Botão hambúrguer fixo */
+.hamburger {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  font-size: 30px;
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* Quando a caixa tiver a classe show, ela aparece */
+.info-box.show {
+  display: block;
+}

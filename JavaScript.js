@@ -30,3 +30,19 @@ if (!event.target.closest('.info-box') && !event.target.closest('.icon-buttons')
     document.querySelectorAll('.info-box').forEach(box => box.style.display = 'none');
 }
 });
+
+// Abre/fecha a sidebar
+document.getElementById("btn-menu").addEventListener("click", function() {
+  let sidebar = document.getElementById("sidebar");
+  if (sidebar.style.width === "250px") {
+    sidebar.style.width = "0";
+  } else {
+    sidebar.style.width = "250px";
+  }
+});
+
+// Mostra/esconde input
+function toggleInput(id) {
+  let input = document.getElementById(id);
+  input.classList.toggle("show");
+}

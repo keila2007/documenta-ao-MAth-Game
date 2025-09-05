@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Game</title>
+  <link rel="stylesheet" href="estilo.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>Math Game</h1>
+  <h2>Math Game</h2>
+  <h3>Math Game</h3>
+
+  <div class="menu-container">
+    <a href="login.html" target="_blank">
+      <button class="btn-pixel" id="btn-new-game">Cadastre-se para jogar</button>
+    </a>
+
+    <!-- Ícones com caixas fixas abaixo -->
+    <div class="icon-buttons">
+      <div class="icon-wrapper">
+        <button class="icon-btn" id="btn-control">🎮</button>
+        <div class="info-box" id="box-control">Texto do controle aqui.</div>
+      </div>
+
+      <div class="icon-wrapper">
+        <button class="icon-btn" id="btn-key">🔑</button>
+        <div class="info-box" id="box-key">Texto da chave aqui.</div>
+      </div>
+
+      <div class="icon-wrapper">
+        <button class="icon-btn" id="btn-trophy">🏆</button>
+        <div class="info-box" id="box-trophy">Texto do troféu aqui.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botão hambúrguer fixo no canto superior direito -->
+  <button class="hamburger" id="btn-menu">☰</button>
+
+<!-- Sidebar oculta -->
+<div id="sidebar" class="sidebar">
+  <div class="icon-wrapper">
+    <button class="icon-btn-sidebar" onclick="toggleInput('input1')">Sobre o jogo</button>
+    <div class="info-box hidden-input" id="input1">
+      Esse é um jogo de matemática divertido!
+    </div>
+  </div>
+
+  <div class="icon-wrapper">
+    <button class="icon-btn-sidebar" onclick="toggleInput('input2')">Criadores</button>
+    <div class="info-box hidden-input" id="input2">
+      Feito pela equipe Math Game.
+    </div>
+  </div>
+</div>
+
+
+  <script src="JavaScript.js"></script>
+</body>
+</html>
