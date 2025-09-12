@@ -20,7 +20,6 @@
           <h2>Faça login para continuar</h2>
           <form id="loginForm">
             <input type="text" name="usuario_ou_email" placeholder="Usuário ou e-mail" required />
-            
             <!-- Campo de senha com ícone -->
             <div class="password-container">
               <input type="password" name="senha" id="loginSenha" placeholder="Senha" required />
@@ -32,7 +31,6 @@
             <p>Não tem conta? <a onclick="trocarPagina('cadastro')">Cadastre-se</a></p>
           </form>
         </div>
-
         <!-- Cadastro -->
         <div id="cadastro" class="page">
           <h1>Cadastro</h1>
@@ -40,13 +38,11 @@
             <input type="text" name="nome_completo" placeholder="Nome completo" required />
             <input type="text" name="nome_usuario" placeholder="Nome no jogo" required />
             <input type="email" name="email" placeholder="E-mail" required />
-
             <!-- Senha com ícone -->
             <div class="password-container">
               <input type="password" name="senha" id="senhaCadastro" placeholder="Senha" required />
               <span class="toggle-password" onclick="togglePassword('senhaCadastro', this)">👁️</span>
             </div>
-
             <!-- Confirmar senha com ícone -->
             <div class="password-container">
               <input type="password" id="confirmarSenha" placeholder="Confirmar senha" required />

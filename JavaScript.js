@@ -31,7 +31,6 @@ if (!event.target.closest('.info-box') && !event.target.closest('.icon-buttons')
 }
 });
 
-<<<<<<< HEAD
 // Abre/fecha a sidebar
 document.getElementById("btn-menu").addEventListener("click", function() {
   let sidebar = document.getElementById("sidebar");
@@ -47,7 +46,7 @@ function toggleInput(id) {
   let input = document.getElementById(id);
   input.classList.toggle("show");
 }
-=======
+
 const btnMenu = document.getElementById('btn-menu');
 const sidebar = document.getElementById('sidebar');
 
@@ -81,5 +80,3 @@ document.addEventListener('click', function(event) {
     hideSidebarBoxes();
   }
 });
-
->>>>>>> 41698a015bbc8c4cc4dc4dcdd271fa0551682bcf
