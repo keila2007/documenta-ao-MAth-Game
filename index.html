@@ -20,7 +20,13 @@
           <h2>Faça login para continuar</h2>
           <form id="loginForm">
             <input type="text" name="usuario_ou_email" placeholder="Usuário ou e-mail" required />
-            <input type="password" name="senha" placeholder="Senha" required />
+            
+            <!-- Campo de senha com ícone -->
+            <div class="password-container">
+              <input type="password" name="senha" id="loginSenha" placeholder="Senha" required />
+              <span class="toggle-password" onclick="togglePassword('loginSenha', this)">👁️</span>
+            </div>
+
             <button type="submit">Entrar</button>
             <p><a onclick="trocarPagina('esqueci')">Esqueceu a senha?</a></p>
             <p>Não tem conta? <a onclick="trocarPagina('cadastro')">Cadastre-se</a></p>
@@ -32,14 +38,26 @@
           <h1>Cadastro</h1>
           <form id="cadastroForm">
             <input type="text" name="nome_completo" placeholder="Nome completo" required />
-            <input type="text" name="nome_usuario" placeholder="Nome de usuário" required />
+            <input type="text" name="nome_usuario" placeholder="Nome no jogo" required />
             <input type="email" name="email" placeholder="E-mail" required />
-            <input type="password" name="senha" placeholder="Senha" id="senhaCadastro" required />
-            <input type="password" placeholder="Confirmar senha" id="confirmarSenha" required />
+
+            <!-- Senha com ícone -->
+            <div class="password-container">
+              <input type="password" name="senha" id="senhaCadastro" placeholder="Senha" required />
+              <span class="toggle-password" onclick="togglePassword('senhaCadastro', this)">👁️</span>
+            </div>
+
+            <!-- Confirmar senha com ícone -->
+            <div class="password-container">
+              <input type="password" id="confirmarSenha" placeholder="Confirmar senha" required />
+              <span class="toggle-password" onclick="togglePassword('confirmarSenha', this)">👁️</span>
+            </div>
+
             <select name="serie" required>
               <option value="" disabled selected hidden>Selecione sua série</option>
               <option value="1EM">1º ano do Ensino Médio</option>
               <option value="2EM">2º ano do Ensino Médio</option>
+              <option value="3EM">3º ano do Ensino Médio</option>
               <option value="3EM">3º ano do Ensino Médio</option>
             </select>
             <button type="submit">Cadastrar</button>
@@ -47,28 +65,54 @@
           </form>
         </div>
 
-        <!-- Esqueci -->
+        <!-- Esqueci senha -->
         <div id="esqueci" class="page">
           <h1>Recuperar senha</h1>
           <form id="esqueciForm">
             <input type="email" name="email" placeholder="E-mail" required />
+            <input type="text" name="nome_usuario" placeholder="Nome no jogo" required />
             <button type="submit">Continuar</button>
             <p><a onclick="trocarPagina('login')">Voltar ao login</a></p>
           </form>
         </div>
 
-        <!-- Redefinir -->
+        <!-- Redefinir senha -->
         <div id="redefinir" class="page">
           <h1>Nova senha</h1>
           <form id="redefinirForm">
-            <input type="password" name="novaSenha" placeholder="Nova senha" id="novaSenha" required />
-            <input type="password" placeholder="Confirmar nova senha" id="confirmarNovaSenha" required />
+            <!-- Nova senha com ícone -->
+            <div class="password-container">
+              <input type="password" name="novaSenha" id="novaSenha" placeholder="Nova senha" required />
+              <span class="toggle-password" onclick="togglePassword('novaSenha', this)">👁️</span>
+            </div>
+
+            <!-- Confirmar nova senha com ícone -->
+            <div class="password-container">
+              <input type="password" id="confirmarNovaSenha" placeholder="Confirmar nova senha" required />
+              <span class="toggle-password" onclick="togglePassword('confirmarNovaSenha', this)">👁️</span>
+            </div>
+
             <button type="submit">Salvar</button>
           </form>
         </div>
+
       </div>
     </div>
   </div>
-<script src="login-JavaScript.js"></script>
+
+  <script src="login-JavaScript.js"></script>
+  <script>
+    // Função para mostrar/ocultar senha
+    function togglePassword(inputId, icon) {
+      const input = document.getElementById(inputId);
+      if (input.type === "password") {
+        input.type = "text";
+        icon.textContent = "🙈"; // ícone quando mostra
+      } else {
+        input.type = "password";
+        icon.textContent = "👁️"; // ícone quando esconde
+      }
+    }
+  </script>
 </body>
 </html>

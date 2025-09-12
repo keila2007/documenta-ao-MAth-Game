@@ -39,3 +39,14 @@ function trocarPagina(id) {
     if (data.ok) { alert("Senha redefinida!"); trocarPagina("login"); }
     else { alert("Erro: " + data.error); }
   });
+
+  function togglePassword(inputId, icon) {
+  const input = document.getElementById(inputId);
+  if (input.type === "password") {
+    input.type = "text";
+    icon.textContent = "🙈"; // muda ícone quando mostra
+  } else {
+    input.type = "password";
+    icon.textContent = "👁️"; // volta ícone quando esconde
+  }
+}

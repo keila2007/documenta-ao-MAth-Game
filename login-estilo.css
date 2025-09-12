@@ -40,16 +40,33 @@ body  {
       flex-direction: column;
       justify-content: center;
     }
-    .form-side h1, .form-side h2 { font-family: 'Press Start 2P', cursive; }
-    #login h1, #login h2 { color: yellow; text-shadow: 2px 2px 0px black; }
-    form { display: flex; flex-direction: column; }
-    input, select {
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid #aaa;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
+    .form-side h1, 
+.form-side h2 { 
+  font-family: 'Press Start 2P', cursive; 
+}
+
+/* Estilo para todas as telas principais */
+#login h1, #login h2,
+#cadastro h1, #cadastro h2,
+#esqueci h1, #esqueci h2,
+#redefinir h1, #redefinir h2 {
+  color: rgb(250, 246, 0);
+  text-shadow: 2px 2px 0px rgb(0, 0, 0);
+}
+
+form { 
+  display: flex; 
+  flex-direction: column; 
+}
+
+input, select {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
     button {
       padding: 12px;
       background-color: #00b7ff;
@@ -64,3 +81,35 @@ body  {
     .page { display: none; }
     .active { display: block; }
 
+/* Links padrão */
+a {
+  color: black;           /* cor normal do link */
+  text-decoration: none;  /* tira o sublinhado */
+  cursor: pointer;
+  transition: color 0.3s; /* animação suave */
+}
+
+/* Quando passar o mouse */
+a:hover {
+  color: blue;            /* fica azul */
+}
+
+/* Container do campo de senha com ícone */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  flex: 1;
+  padding-right: 40px; /* espaço para o ícone */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
