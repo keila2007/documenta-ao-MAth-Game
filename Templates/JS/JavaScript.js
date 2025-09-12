@@ -31,6 +31,7 @@ if (!event.target.closest('.info-box') && !event.target.closest('.icon-buttons')
 }
 });
 
+<<<<<<< HEAD
 // Abre/fecha a sidebar
 document.getElementById("btn-menu").addEventListener("click", function() {
   let sidebar = document.getElementById("sidebar");
@@ -46,3 +47,39 @@ function toggleInput(id) {
   let input = document.getElementById(id);
   input.classList.toggle("show");
 }
+=======
+const btnMenu = document.getElementById('btn-menu');
+const sidebar = document.getElementById('sidebar');
+
+// Toggle sidebar open/close
+btnMenu.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+});
+
+// Função para esconder todas as info-box da sidebar
+function hideSidebarBoxes() {
+  document.querySelectorAll('.sidebar-info-box').forEach(box => {
+    box.style.display = 'none';
+  });
+}
+
+// Adiciona evento para todos os botões da sidebar
+document.querySelectorAll('.sidebar-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    hideSidebarBoxes();
+    const boxId = button.getAttribute('data-box');
+    const box = document.getElementById(boxId);
+    if(box) {
+      box.style.display = 'block';
+    }
+  });
+});
+
+// Opcional: clicar fora da sidebar fecha as info-box da sidebar
+document.addEventListener('click', function(event) {
+  if (!event.target.closest('#sidebar') && !event.target.closest('#btn-menu')) {
+    hideSidebarBoxes();
+  }
+});
+
+>>>>>>> 41698a015bbc8c4cc4dc4dcdd271fa0551682bcf
