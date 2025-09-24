@@ -1,13 +1,27 @@
-/* Fundo */
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background-image: url("WhatsApp Image 2025-08-08 at 11.33.31.jpeg");
+  position: relative;              /* importante para o pseudo-elemento */
+  overflow: hidden;
+}
+
+/* Cria uma camada só para a imagem de fundo */
+body::before {
+  content: "";
+  position: fixed;                 /* cobre a tela toda */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("WhatsApp Image 2025-08-08 at 11.33.31 (1).jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  z-index: -1;                      /* fica atrás de todo o conteúdo */
+  transition: filter 0.3s ease;     /* animação suave */
 }
+
 
 /* Títulos */
 h1, h2, h3 {
@@ -50,7 +64,7 @@ h3 { font-size: 44px; }
 
 .btn-pixel:hover {
   transform: scale(1.1);
-  background-color: #444;
+  background-color: #ffe603b0;
 }
 
 /* Ícones */
@@ -71,8 +85,8 @@ h3 { font-size: 44px; }
 
 .icon-btn {
   font-size: 140px;
-  background-color: #222;
-  border: 3px solid #555;
+  background: none;        /* remove a caixa cinza */
+  border: none;            /* sem borda */
   color: white;
   padding: 15px;
   cursor: pointer;
@@ -80,9 +94,9 @@ h3 { font-size: 44px; }
 }
 
 .icon-btn:hover {
-  transform: scale(1.1);
-  background-color: #444;
+  transform: scale(1.6);           /* salto */
 }
+
 
 /* Caixas invisíveis fixas abaixo do ícone */
 .info-box {
@@ -108,12 +122,11 @@ h3 { font-size: 44px; }
   top: 20px;
   right: 20px;
   font-size: 30px;
-  background-color: #333;
-  border: 3px solid #666;
   color: white;
   padding: 8px 12px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  text-align: center;
+  transition: color 0.2s ease;
   z-index: 1000;
 }
 
@@ -129,8 +142,8 @@ h3 { font-size: 44px; }
   position: fixed;
   top: 0;
   right: 0;
-  background-color: rgba(200, 200, 200, 0.9); /* cinza mais claro com transparência */
-  border-left: 3px solid #666; /* borda igual ao tom atual */
+  background-color: rgba(0, 0, 0, 0.726); /* cinza mais claro com transparência */
+  border-left: 3px solid #000000; /* borda igual ao tom atual */
   overflow-x: hidden;
   transition: 0.3s;
   padding-top: 100px; /* empurra os botões para mais baixo */
