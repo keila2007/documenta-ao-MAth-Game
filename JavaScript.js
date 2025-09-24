@@ -74,9 +74,3 @@ document.querySelectorAll('.sidebar-btn').forEach(button => {
   });
 });
 
-// Opcional: clicar fora da sidebar fecha as info-box da sidebar
-document.addEventListener('click', function(event) {
-  if (!event.target.closest('#sidebar') && !event.target.closest('#btn-menu')) {
-    hideSidebarBoxes();
-  }
-});
