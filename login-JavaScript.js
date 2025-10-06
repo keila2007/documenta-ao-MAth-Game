@@ -1,52 +1,130 @@
-function trocarPagina(id) {
-    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-  }
+/* Fundo */
+body  {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-image: url("Fundo.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 
-  async function postForm(url, form) {
-    const formData = new FormData(form);
-    const response = await fetch(url, { method: "POST", body: formData });
-    return response.json();
-  }
+.titulo-jogo {
+  margin-top: 50px;
+  font-family: 'Press Start 2P', cursive;
+  color: yellow;
+  text-align: center;
+  font-size: 66px;
+  text-shadow: 3px 3px 0px black, 6px 6px 8px rgba(0,0,0,0.8);
+}
 
-  document.getElementById("cadastroForm")?.addEventListener("submit", async function(e){
-    e.preventDefault();
-    const senha = document.getElementById("senhaCadastro").value;
-    const confirmar = document.getElementById("confirmarSenha").value;
-    if (senha !== confirmar) { alert("As senhas não coincidem!"); return; }
-    const data = await postForm("cadastro.php", this);
-    if (data.ok) { alert("Cadastro realizado!"); trocarPagina("login"); }
-    else { alert("Erro: " + data.error); }
-  });
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 150px);
+}
 
-  document.getElementById("loginForm")?.addEventListener("submit", async function(e){
-    e.preventDefault();
-    const data = await postForm("login.php", this);
-    if (data.ok) { alert("Login feito com sucesso!"); }
-    else { alert("Erro: " + data.error); }
-  });
+.container {
+  display: flex;
+  width: 90%;
+  max-width: 900px;
+  background: transparent;                /* fundo totalmente transparente */
+  border: 2px solid rgba(46, 45, 45, 0.4); /* borda levemente visível */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
 
-  document.getElementById("esqueciForm")?.addEventListener("submit", function(e){
-    e.preventDefault(); trocarPagina("redefinir");
-  });
+.form-side {
+  flex: 1;
+  padding: 40px;
 
-  document.getElementById("redefinirForm")?.addEventListener("submit", async function(e){
-    e.preventDefault();
-    const senha = document.getElementById("novaSenha").value;
-    const confirmar = document.getElementById("confirmarNovaSenha").value;
-    if (senha !== confirmar) { alert("As senhas não coincidem!"); return; }
-    const data = await postForm("redefinir.php", this);
-    if (data.ok) { alert("Senha redefinida!"); trocarPagina("login"); }
-    else { alert("Erro: " + data.error); }
-  });
+  /* preto transparente (fosco) */
+  background-color: rgba(0, 0, 0, 0.8);
 
-  function togglePassword(inputId, icon) {
-  const input = document.getElementById(inputId);
-  if (input.type === "password") {
-    input.type = "text";
-    icon.textContent = "🙈"; // muda ícone quando mostra
-  } else {
-    input.type = "password";
-    icon.textContent = "👁️"; // volta ícone quando esconde
-  }
+  /* efeito de vidro fosco */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(5px);
+
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+  color: white; /* deixa o texto visível */
+}
+
+.form-side h1,
+.form-side h2 {
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* Estilo para todas as telas principais */
+#login h1, #login h2,
+#cadastro h1, #cadastro h2,
+#esqueci h1, #esqueci h2,
+#redefinir h1, #redefinir h2 {
+  color: rgb(250, 246, 0);
+  text-shadow: 2px 2px 0px rgb(0, 0, 0);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input, select {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 12px;
+  background-color: #00b7ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+p { text-align: center; }
+
+.page { display: none; }
+.active { display: block; }
+
+/* Links padrão */
+a {
+  color: rgb(255, 255, 255);           /* cor normal do link */
+  text-decoration: none;  /* tira o sublinhado */
+  cursor: pointer;
+  transition: color 0.3s; /* animação suave */
+}
+
+a:hover {
+  color: rgb(255, 251, 0);            /* fica azul */
+}
+
+/* Container do campo de senha com ícone */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  flex: 1;
+  padding-right: 40px; /* espaço para o ícone */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
 }
