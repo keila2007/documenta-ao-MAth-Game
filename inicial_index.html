@@ -14,48 +14,50 @@
   <h3>Math Game</h3>
 
   <div class="menu-container">
-    <a href="index.html" target="_blank">
-    <button class="btn-pixel" id="btn-new-game">Cadastre-se para jogar</button>
+    <!-- SOLUÇÃO 1: Link estilizado como botão (RECOMENDADO) -->
+    <a href="index.html" target="_blank" class="btn-pixel link-as-button">
+      Cadastre-se para jogar
     </a>
 
     <!-- Ícones com caixas fixas abaixo -->
     <div class="icon-buttons">
       <div class="icon-wrapper">
-        <button class="icon-btn" id="btn-control">🎮</button>
+        <button type="button" class="icon-btn" id="btn-control">🎮</button>
         <div class="info-box" id="box-control">Como funciona o jogo.</div>
       </div>
 
       <div class="icon-wrapper">
-        <button class="icon-btn" id="btn-key">🔑</button>
+        <button type="button" class="icon-btn" id="btn-key">🔑</button>
         <div class="info-box" id="box-key">Como é a progreção da fase.</div>
       </div>
 
       <div class="icon-wrapper">
-        <button class="icon-btn" id="btn-trophy">🏆</button>
+        <button type="button" class="icon-btn" id="btn-trophy">🏆</button>
         <div class="info-box" id="box-trophy">Metas e Recompensas.</div>
       </div>
     </div>
   </div>
 
   <!-- Botão hambúrguer fixo no canto superior direito -->
-  <button class="hamburger" id="btn-menu">☰</button>
-<!-- Sidebar oculta -->
-<div id="sidebar" class="sidebar">
-  <div class="icon-wrapper">
-    <button class="icon-btn-sidebar" onclick="toggleInput('input1')">Sobre o jogo</button>
+  <button type="button" class="hamburger" id="btn-menu">☰</button>
+
+  <!-- Sidebar oculta -->
+  <div id="sidebar" class="sidebar">
+    <div class="icon-wrapper">
+      <button type="button" class="icon-btn-sidebar" onclick="toggleInput('input1')">Sobre o jogo</button>
+    </div>
+
+    <div class="icon-wrapper">
+      <!-- SOLUÇÃO 2: Link puro na sidebar -->
+      <a href="Criadores.html" target="_blank" class="icon-btn-sidebar">
+        Criadores
+      </a>
+    </div>
+
+    <div class="icon-wrapper">
+      <button type="button" class="icon-btn-sidebar" onclick="toggleInput('input3')">Suporte</button>
+    </div>
   </div>
-
-  <div class="icon-wrapper">
-    <button class="icon-btn-sidebar" onclick="toggleInput('input2')">Criadores</button>
-    <a href="Criadores.html" target="_blank"></a>
-  </div>
-
-  <div class="icon-wrapper">
-    <button class="icon-btn-sidebar" onclick="toggleInput('input3')">Suporte</button>
-  </div>
-</div>
-
-
 
   <script src="JavaScript.js"></script>
 </body>
