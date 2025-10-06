@@ -163,9 +163,18 @@ transition: transform 0.3s ease;
     font-weight: 600;
     margin-bottom: 5px;
     background: linear-gradient(135deg, var(--primary), var(--accent));
+    
+    /* Propriedades padrão */
+    background-clip: text;
+    color: transparent;
+    
+    /* Prefixos vendor */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
 }
+
 
 .developer-role {
     color: var(--secondary);
