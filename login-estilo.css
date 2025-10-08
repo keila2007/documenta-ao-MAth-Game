@@ -3,7 +3,7 @@ body  {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background-image: url("WhatsApp Image 2025-08-08 at 11.33.31.jpeg");
+  background-image: url("Fundo.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -26,19 +26,22 @@ body  {
       display: flex;
       width: 90%;
       max-width: 900px;
-      background: #2b2a2a;
-      border: 2px solid #2e2d2d;
+      background-color:rgba(255,255,255,0.1);
+      border: 2px solid #000000;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
     }
     .form-side {
       flex: 1;
       padding: 40px;
-      background-color: #e0e0e0;
+      background: rgba(0, 0, 0, 0.7); 
+      backdrop-filter: blur(5px);
       display: flex;
       flex-direction: column;
       justify-content: center;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
     .form-side h1, 
 .form-side h2 { 
@@ -83,7 +86,7 @@ input, select {
 
 /* Links padrão */
 a {
-  color: black;           /* cor normal do link */
+  color: rgb(255, 255, 255);           /* cor normal do link */
   text-decoration: none;  /* tira o sublinhado */
   cursor: pointer;
   transition: color 0.3s; /* animação suave */
@@ -112,4 +115,30 @@ a:hover {
   cursor: pointer;
   font-size: 18px;
   user-select: none;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--light);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 40px auto 60px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+  width: fit-content;
+}
+
+.back-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(255,255,255,0.3);
+  transform: translateY(-2px);
 }
