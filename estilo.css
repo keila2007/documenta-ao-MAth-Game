@@ -1,212 +1,116 @@
-body {
+/* Fundo */
+body  {
   margin: 0;
   padding: 0;
   height: 100vh;
-  position: relative;              /* importante para o pseudo-elemento */
-  overflow: hidden;
-}
-
-/* Cria uma camada só para a imagem de fundo */
-body::before {
-  content: "";
-  position: fixed;                 /* cobre a tela toda */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background-image: url("Fundo.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  z-index: -1;                      /* fica atrás de todo o conteúdo */
-  transition: filter 0.3s ease;     /* animação suave */
+}
+    .titulo-jogo {
+      margin-top: 50px;
+      font-family: 'Press Start 2P', cursive;
+      color: yellow;
+      text-align: center;
+      font-size: 66px;
+      text-shadow: 3px 3px 0px black, 6px 6px 8px rgba(0,0,0,0.8);
+    }
+    .main-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 150px);
+    }
+    .container {
+      display: flex;
+      width: 90%;
+      max-width: 900px;
+      background: #2b2a2a;
+      border: 2px solid #2e2d2d;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+    .form-side {
+      flex: 1;
+      padding: 40px;
+      background-color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .form-side h1, 
+.form-side h2 { 
+  font-family: 'Press Start 2P', cursive; 
 }
 
-
-/* Títulos */
-h1, h2, h3 {
-  font-family: 'Press Start 2P', cursive;
-  color: yellow;
-  text-align: center;
-  text-shadow: 3px 3px black;
-  text-shadow:
-    3px 3px 0px black,   /* sombra dura */
-    6px 6px 8px rgba(0,0,0,0.9); /* sombra suave */
+/* Estilo para todas as telas principais */
+#login h1, #login h2,
+#cadastro h1, #cadastro h2,
+#esqueci h1, #esqueci h2,
+#redefinir h1, #redefinir h2 {
+  color: rgb(250, 246, 0);
+  text-shadow: 2px 2px 0px rgb(0, 0, 0);
 }
 
-h1 { font-size: 66px; }
-h2 { font-size: 55px; }
-h3 { font-size: 44px; }
-
-/* Menu central */
-.menu-container {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+form { 
+  display: flex; 
+  flex-direction: column; 
 }
 
-/* Botão cadastre-se */
-.btn-pixel {
-  background-color: #ffcc00;
-  color: black;
-  font-size: 18px;
-  padding: 10px 20px;
-  border: 4px solid #000;
+input, select {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+    button {
+      padding: 12px;
+       background-color: #0084ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    p { text-align: center; }
+    .page { display: none; }
+    .active { display: block; }
+
+/* Links padrão */
+a {
+  color: black;           /* cor normal do link */
+  text-decoration: none;  /* tira o sublinhado */
   cursor: pointer;
-  font-family: 'Press Start 2P', monospace;
-  transition: all 0.2s ease;
+  transition: color 0.3s; /* animação suave */
 }
 
-.btn-pixel:hover {
-  transform: scale(1.1);
-  background-color: #ffe603b0;
+/* Quando passar o mouse */
+a:hover {
+  color: blue;            /* fica azul */
 }
 
-/* Ícones */
-.icon-buttons {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-/* Wrapper para posicionar caixa abaixo do ícone */
-.icon-wrapper {
+/* Container do campo de senha com ícone */
+.password-container {
   position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
-.icon-btn {
-  font-size: 140px;
-  background: none;        /* remove a caixa cinza */
-  border: none;            /* sem borda */
-  color: white;
-  padding: 15px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.password-container input {
+  flex: 1;
+  padding-right: 40px; /* espaço para o ícone */
 }
 
-.icon-btn:hover {
-  transform: scale(1.5);           /* salto */
-}
-
-
-/* Caixas invisíveis fixas abaixo do ícone */
-.info-box {
-  display: none;
+.toggle-password {
   position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  border: 2px solid yellow;
-  padding: 15px;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 12px;
-  width: 200px;
-  text-align: center;
-  z-index: 10;
-}
-
-/* Hambúrguer fixo no canto superior direito */
-.hamburger {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 30px;
-  color: white;
-  padding: 8px 12px;
+  right: 10px;
   cursor: pointer;
-  text-align: center;
-  transition: color 0.2s ease;
-  z-index: 1000;
+  font-size: 18px;
+  user-select: none;
 }
 
-.hamburger:hover {
-  transform: scale(1.1);
-  background-color: #444;
-}
-
-/* Sidebar lateral */
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  top: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.726); /* cinza mais claro com transparência */
-  border-left: 3px solid #000000; /* borda igual ao tom atual */
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 100px; /* empurra os botões para mais baixo */
-  z-index: 1000;
-}
-/* Botões dentro da sidebar */
-.icon-btn-sidebar {
-  display: block;
-  width: 80%;
-  margin: 12px auto;
-  padding: 12px;
-  background: #444;
-  border: 2px solid #666;
-  color: #fff;
-  font-family: 'Press Start 2P', monospace;
-  cursor: pointer;
-  text-align: center;
-}
-
-.icon-btn-sidebar:hover {
-  background: #666;
-}
-
-/* Caixas da sidebar iguais às dos ícones */
-.sidebar .info-box {
-  position: relative;   /* diferente do absoluto dos ícones */
-  top: auto;
-  left: auto;
-  transform: none;
-  margin: 8px auto;
-}
-
-.sidebar button:hover {
-  background: #666;
-}
-
-/* Inputs escondidos */
-.hidden-input {
-  display: none;
-  margin: 8px 16px;
-  padding: 6px;
-  width: 80%;
-}
-
-.show {
-  display: block;
-}
-
-/* Botão hambúrguer fixo */
-.hamburger {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  font-size: 30px;
-  background: #333;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  z-index: 1100;
-}
-
-/* Quando a caixa tiver a classe show, ela aparece */
-.info-box.show {
-  display: block;
-}
